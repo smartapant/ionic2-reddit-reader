@@ -10,6 +10,8 @@ import {RedditApiService} from '../../providers/reddit-api-service';
   providers: [RedditApiService]
 })
 export class PostsPage {
+  public loadCompleted: boolean = false;
+
   private posts: Array<any>;
 
   constructor(public navCtrl: NavController, public redditApi: RedditApiService) {
@@ -19,6 +21,7 @@ export class PostsPage {
   private load(): void {
     this.redditApi.fetchHot().subscribe((posts) => {
       this.posts = posts;
+      this.loadCompleted = true;
       console.log(posts)
     })
   }
