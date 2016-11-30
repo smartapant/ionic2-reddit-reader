@@ -1,20 +1,20 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
-import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+import { RedditReaderApp } from './app.component';
+import { PostsPage } from '../pages/posts/posts';
 
 @NgModule({
   declarations: [
-    MyApp,
-    HomePage
+    RedditReaderApp,
+    PostsPage
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(RedditReaderApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    HomePage
+    RedditReaderApp,
+    PostsPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
