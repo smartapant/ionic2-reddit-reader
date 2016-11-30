@@ -30,6 +30,12 @@ export class PostsPage {
    return post.preview && post.preview.images[0].source.url;
   }
 
+  public getHoursAgo(post): number {
+    let msPerHour = 60 * 1000 * 60;
+    let elapsed = new Date().getTime() - post.created_utc;
+    return Math.round(elapsed/msPerHour);
+  }
+
   loadMore(infiniteScroll) {
     let lastPost = this.posts[this.posts.length - 1];
     if (!lastPost) {

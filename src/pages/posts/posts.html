@@ -12,11 +12,29 @@
 
   <ion-card *ngFor="let post of posts">
     <ion-card-content>
-      <ion-card-title>
-        {{post.title}}
-      </ion-card-title>
+      <ion-card-title class="post-title">{{post.title}}</ion-card-title>
       <img *ngIf="getPostImage(post)" [src]="getPostImage(post)"/>
+      <p class="post-author">{{'/r/' + post.subreddit}}, by {{post.author}}</p>
     </ion-card-content>
+    <ion-row>
+      <ion-col center text-center>
+        <ion-note>
+          <ion-icon name="ios-arrow-up-outline" class="score-icon"></ion-icon>
+          <span>{{post.score}}</span>
+        </ion-note>
+      </ion-col>
+      <ion-col center text-center>
+        <ion-note>
+          {{(post.created_utc | amFromUnix) | amTimeAgo}}
+        </ion-note>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-left clear small>
+          <ion-icon name="ios-text-outline"></ion-icon>
+          <div>{{post.num_comments}} Comments</div>
+        </button>
+      </ion-col>
+    </ion-row>
   </ion-card>
 
   <ion-infinite-scroll (ionInfinite)="loadMore($event)">

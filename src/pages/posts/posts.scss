@@ -7,4 +7,19 @@ page-posts {
     right: 0;
     bottom: 0;
   }
+
+  .post-title {
+    text-align: center;
+  }
+
+  .post-author {
+    position: relative;
+    top: 5px;
+  }
+
+  .score-icon {
+    position: relative;
+    top: 2px;
+    margin-right: 2px;
+  }
 }
