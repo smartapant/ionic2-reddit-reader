@@ -29,7 +29,7 @@
         </ion-note>
       </ion-col>
       <ion-col>
-        <button ion-button icon-left clear small>
+        <button ion-button icon-left clear small (click)="goToComments(post)">
           <ion-icon name="ios-text-outline"></ion-icon>
           <div>{{post.num_comments}} Comments</div>
         </button>

@@ -2,7 +2,9 @@ import { Component } from '@angular/core';
 
 import { NavController } from 'ionic-angular';
 
-import {RedditApiService} from '../../providers/reddit-api-service';
+import { RedditApiService } from '../../providers/reddit-api-service';
+
+import { CommentsPage } from '../comments/comments'
 
 @Component({
   selector: 'page-posts',
@@ -13,6 +15,7 @@ export class PostsPage {
   public loadCompleted: boolean = false;
 
   private posts: Array<any>;
+  private commentsPage = CommentsPage;
 
   constructor(public navCtrl: NavController, public redditApi: RedditApiService) {
     this.load();
@@ -30,10 +33,8 @@ export class PostsPage {
    return post.preview && post.preview.images[0].source.url;
   }
 
-  public getHoursAgo(post): number {
-    let msPerHour = 60 * 1000 * 60;
-    let elapsed = new Date().getTime() - post.created_utc;
-    return Math.round(elapsed/msPerHour);
+  public goToComments(post) {
+    this.navCtrl.push(this.commentsPage, post)
   }
 
   loadMore(infiniteScroll) {
