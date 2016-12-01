@@ -12,6 +12,7 @@
 
 </ion-header>
 
+<ion-spinner *ngIf="!loadCompleted" name="crescent" class="comments-load-spinner"></ion-spinner>
 
 <ion-content padding>
   <ion-card *ngIf="post.selftext">

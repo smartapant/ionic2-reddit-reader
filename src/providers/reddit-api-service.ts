@@ -24,7 +24,7 @@ export class RedditApiService {
     let url: string = BASE_URL + post.permalink + JSON_POSTFIX;
     return this.http.get(url)
       .map(res => res.json()[1].data.children.map(c => c.data).filter(c => c.body))
-      .map(this.beautifyReplies)
+      .map(this.beautifyReplies.bind(this))
 
   }
 
