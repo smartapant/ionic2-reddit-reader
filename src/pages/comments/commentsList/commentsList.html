@@ -6,11 +6,15 @@
       <span class="when"> {{(comment.created_utc | amFromUnix) | amTimeAgo}}</span>
     </p>
     <p>{{comment.body}}</p>
-    <div *ngIf="comment.replies.length" class="replies-toggle" (click)="collapse(comment)">
+    <button
+      *ngIf="comment.replies.length"
+      ion-button clear
+      (click)="collapse(comment)"
+      class="replies-toggle">
       <span>replies ({{comment.replies.length}})</span>
       <ion-icon name="ios-arrow-down" *ngIf="!comment.collapsed"></ion-icon>
       <ion-icon name="ios-arrow-forward" *ngIf="comment.collapsed"></ion-icon>
-    </div>
+    </button>
     <comments-list *ngIf="comment.replies.length && !comment.collapsed" [comments]="comment.replies"></comments-list>
   </ion-item>
 </ion-list>
