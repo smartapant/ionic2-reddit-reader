@@ -7,12 +7,29 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>comments</ion-title>
+    <ion-title>Comments</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+  <ion-card *ngIf="post.selftext">
+    <ion-card-content>
+      <p class="selftext">{{post.selftext}}</p>
+      <ion-row class="post-author">
+        <ion-col center text-left>
+          <ion-note>
+            by {{post.author}}
+          </ion-note>
+        </ion-col>
+        <ion-col center text-right>
+          <ion-note>
+            {{(post.created_utc | amFromUnix) | amTimeAgo}}
+          </ion-note>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
 
 </ion-content>

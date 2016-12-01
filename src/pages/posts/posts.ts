@@ -34,7 +34,7 @@ export class PostsPage {
   }
 
   public goToComments(post) {
-    this.navCtrl.push(this.commentsPage, post)
+    this.navCtrl.push(this.commentsPage, {post: post})
   }
 
   loadMore(infiniteScroll) {
