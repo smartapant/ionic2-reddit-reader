@@ -8,6 +8,9 @@ import { Component, Input } from '@angular/core';
 export class CommentsList {
   @Input() comments;
 
-  constructor() {
+  constructor() {}
+
+  collapse(comment) {
+    comment.collapsed = !comment.collapsed;
   }
 }
