@@ -4,12 +4,14 @@ import {MomentModule} from 'angular2-moment';
 import { RedditReaderApp } from './app.component';
 import { PostsPage } from '../pages/posts/posts';
 import { CommentsPage } from '../pages/comments/comments'
+import { CommentsList } from '../pages/comments/commentsList/commentsList'
 
 @NgModule({
   declarations: [
     RedditReaderApp,
     PostsPage,
-    CommentsPage
+    CommentsPage,
+    CommentsList
   ],
   imports: [
     IonicModule.forRoot(RedditReaderApp),

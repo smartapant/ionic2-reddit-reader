@@ -12,7 +12,7 @@ import { RedditApiService } from '../../providers/reddit-api-service';
 @Component({
   selector: 'page-comments',
   templateUrl: 'comments.html',
-  providers: [RedditApiService]
+  providers: [RedditApiService],
 })
 export class CommentsPage {
   private post;
