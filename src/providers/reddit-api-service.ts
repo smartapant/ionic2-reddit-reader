@@ -25,7 +25,6 @@ export class RedditApiService {
     return this.http.get(url)
       .map(res => res.json()[1].data.children.map(c => c.data).filter(c => c.body))
       .map(this.beautifyReplies.bind(this))
-
   }
 
   public beautifyReplies(comments) {

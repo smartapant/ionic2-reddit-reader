@@ -26,9 +26,10 @@ export class CommentsPage {
 
   private load() {
     this.redditApi.fetchComments(this.post).subscribe((comments) => {
+      // comments.sort((a,b) => b.score - a.score);
       this.comments = comments;
       this.loadCompleted = true;
-      console.log(comments)
+      console.log(this.comments)
     })
   }
 }

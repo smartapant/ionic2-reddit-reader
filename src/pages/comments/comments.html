@@ -33,4 +33,15 @@
     </ion-card-content>
   </ion-card>
 
+  <ion-list inset no-lines class="comments-list">
+    <ion-item *ngFor="let comment of comments">
+      <p class="comment-head">
+        <span class="comment-author">{{comment.author}}</span>
+        <span class="comment-score">{{comment.score}} points</span>
+        <span class="when"> {{(comment.created_utc | amFromUnix) | amTimeAgo}}</span>
+      </p>
+      <p>{{comment.body}}</p>
+    </ion-item>
+  </ion-list>
+
 </ion-content>
