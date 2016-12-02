@@ -12,6 +12,12 @@ page-posts {
     text-align: center;
   }
 
+  .post-card-content {
+      &:active{
+        background-color: #f9f9f9;
+      }
+  }
+
   .post-author {
     position: relative;
     top: 5px;

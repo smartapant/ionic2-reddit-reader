@@ -11,7 +11,7 @@
   <ion-spinner *ngIf="!loadCompleted" name="crescent" class="posts-load-spinner"></ion-spinner>
 
   <ion-card *ngFor="let post of posts">
-    <ion-card-content>
+    <ion-card-content (click)="readPost(post)" class="post-card-content">
       <ion-card-title class="post-title">{{post.title}}</ion-card-title>
       <img *ngIf="getPostImage(post)" [src]="getPostImage(post)"/>
       <p class="post-author">{{'/r/' + post.subreddit}}, by {{post.author}}</p>

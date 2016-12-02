@@ -33,8 +33,21 @@ export class PostsPage {
    return post.preview && post.preview.images[0].source.url;
   }
 
+  public readPost(post) {
+    let redditUrl = 'https://www.reddit.com/r/'
+    if (post.url.includes(redditUrl)) {
+      this.goToComments(post)
+    } else {
+      this.goToPost(post);
+    }
+  }
+
   public goToComments(post) {
     this.navCtrl.push(this.commentsPage, {post: post})
+  }
+
+  public goToPost(post) {
+    window.open(post.url, '_blank');
   }
 
   loadMore(infiniteScroll) {
