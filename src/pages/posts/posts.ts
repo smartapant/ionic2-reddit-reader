@@ -12,7 +12,7 @@ import { CommentsPage } from '../comments/comments'
   providers: [RedditApiService]
 })
 export class PostsPage {
-  public loadCompleted: boolean = false;
+  loadCompleted: boolean = false;
 
   posts: Array<any>;
   commentsPage = CommentsPage;
@@ -21,7 +21,7 @@ export class PostsPage {
     this.load();
   }
 
-  private load(): void {
+  load() {
     this.redditApi.fetchHot().subscribe((posts) => {
       this.posts = posts;
       this.loadCompleted = true;
@@ -29,7 +29,7 @@ export class PostsPage {
     })
   }
 
-  public getPostImage(post) {
+  getPostImage(post) {
    let postImage = '';
    if (!post.imageError && post.preview) {
      postImage = post.preview.images[0].source.url;
@@ -37,11 +37,11 @@ export class PostsPage {
    return postImage;
   }
 
-  public setImageError(post) {
+  setImageError(post) {
     post.imageError = true;
   }
 
-  public readPost(post) {
+  readPost(post) {
     let redditUrl = 'https://www.reddit.com/r/'
     if (post.url.includes(redditUrl)) {
       this.goToComments(post)
@@ -50,11 +50,11 @@ export class PostsPage {
     }
   }
 
-  public goToComments(post) {
+  goToComments(post) {
     this.navCtrl.push(this.commentsPage, {post: post})
   }
 
-  public goToPost(post) {
+  goToPost(post) {
     window.open(post.url, '_blank');
   }
 
