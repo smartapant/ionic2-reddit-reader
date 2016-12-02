@@ -30,7 +30,15 @@ export class PostsPage {
   }
 
   public getPostImage(post) {
-   return post.preview && post.preview.images[0].source.url;
+   let postImage = '';
+   if (!post.imageError && post.preview) {
+     postImage = post.preview.images[0].source.url;
+   }
+   return postImage;
+  }
+
+  public setImageError(post) {
+    post.imageError = true;
   }
 
   public readPost(post) {
