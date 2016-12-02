@@ -14,8 +14,8 @@ import { CommentsPage } from '../comments/comments'
 export class PostsPage {
   public loadCompleted: boolean = false;
 
-  private posts: Array<any>;
-  private commentsPage = CommentsPage;
+  posts: Array<any>;
+  commentsPage = CommentsPage;
 
   constructor(public navCtrl: NavController, public redditApi: RedditApiService) {
     this.load();

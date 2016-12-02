@@ -15,9 +15,9 @@ import { RedditApiService } from '../../providers/reddit-api-service';
   providers: [RedditApiService],
 })
 export class CommentsPage {
-  private post;
-  private comments;
-  public loadCompleted: boolean = false;
+  post;
+  comments;
+  loadCompleted: boolean = false;
 
   constructor(public navCtrl: NavController, public redditApi: RedditApiService, public params: NavParams) {
     this.post = this.params.get('post');
