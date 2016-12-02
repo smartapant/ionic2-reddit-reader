@@ -6,6 +6,16 @@ page-posts {
     left: 0;
     right: 0;
     bottom: 0;
+
+    * {
+      stroke: color($colors, primary);
+    }
+  }
+
+  ion-infinite-scroll .infinite-loading-spinner {
+    * {
+      stroke: color($colors, primary);
+    }
   }
 
   .post-title {

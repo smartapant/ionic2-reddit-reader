@@ -1,7 +1,11 @@
 page-comments {
-  .post-author {
+  .post-info {
     font-size: 1.2rem;
     color: #2b2b2b;
+
+    .post-author {
+      color: color($colors, primary);
+    }
   }
 
   .comments-load-spinner {
@@ -11,5 +15,9 @@ page-comments {
     left: 0;
     right: 0;
     bottom: 0;
+
+    * {
+      stroke: color($colors, primary);
+    }
   }
 }

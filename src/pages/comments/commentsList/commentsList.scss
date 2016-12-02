@@ -16,6 +16,10 @@
     .comment-head {
       font-size: 1rem;
       margin-bottom: 5px;
+
+      .comment-author {
+        color: color($colors, primary);
+      }
     }
 
     ion-label {

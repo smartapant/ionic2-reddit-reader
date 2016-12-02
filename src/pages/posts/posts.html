@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>
       Ionic2 Reddit Reader
     </ion-title>
@@ -29,7 +29,7 @@
         </ion-note>
       </ion-col>
       <ion-col>
-        <button ion-button icon-left clear small (click)="goToComments(post)">
+        <button ion-button icon-left clear small color="primary" (click)="goToComments(post)">
           <ion-icon name="ios-text-outline"></ion-icon>
           <div>{{post.num_comments}}</div>
         </button>
@@ -38,8 +38,8 @@
   </ion-card>
 
   <ion-infinite-scroll (ionInfinite)="loadMore($event)">
-    <ion-infinite-scroll-content>
-      loadingSpinner="bubbles"
+    <ion-infinite-scroll-content color="primary">
+      loadingSpinner="crescent"
       loadingText="Loading more fun...">
     </ion-infinite-scroll-content>
   </ion-infinite-scroll>

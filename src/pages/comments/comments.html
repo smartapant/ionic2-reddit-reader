@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>Comments</ion-title>
   </ion-navbar>
 
@@ -18,10 +18,10 @@
   <ion-card *ngIf="post.selftext">
     <ion-card-content>
       <p class="selftext">{{post.selftext}}</p>
-      <ion-row class="post-author">
+      <ion-row class="post-info">
         <ion-col center text-left>
-          <ion-note>
-            by {{post.author}}
+          <ion-note class="post-author">
+            {{post.author}}
           </ion-note>
         </ion-col>
         <ion-col center text-right>
