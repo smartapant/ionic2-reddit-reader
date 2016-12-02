@@ -10,7 +10,11 @@ export class CommentsList {
 
   constructor() {}
 
-  collapse(comment) {
-    comment.collapsed = !comment.collapsed;
+  toggleExpanded(comment) {
+    comment.expanded = !comment.expanded;
+  }
+
+  trackByCommentId(index, comment) {
+    return comment.id;
   }
 }

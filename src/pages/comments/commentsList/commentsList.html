@@ -1,5 +1,5 @@
 <ion-list inset no-lines class="comments-list">
-  <ion-item *ngFor="let comment of comments">
+  <ion-item *ngFor="let comment of comments; trackBy: trackByCommentId">
     <p class="comment-head">
       <span class="comment-author">{{comment.author}}</span>
       <span class="comment-score">{{comment.score}} points</span>
@@ -9,12 +9,12 @@
     <button
       *ngIf="comment.replies.length"
       ion-button clear
-      (click)="collapse(comment)"
+      (click)="toggleExpanded(comment)"
       class="replies-toggle">
       <span>replies ({{comment.replies.length}})</span>
-      <ion-icon name="ios-arrow-down" *ngIf="!comment.collapsed"></ion-icon>
-      <ion-icon name="ios-arrow-forward" *ngIf="comment.collapsed"></ion-icon>
+      <ion-icon name="ios-arrow-down" *ngIf="comment.expanded"></ion-icon>
+      <ion-icon name="ios-arrow-forward" *ngIf="!comment.expanded"></ion-icon>
     </button>
-    <comments-list *ngIf="comment.replies.length && !comment.collapsed" [comments]="comment.replies"></comments-list>
+    <comments-list *ngIf="comment.replies.length && comment.expanded" [comments]="comment.replies"></comments-list>
   </ion-item>
 </ion-list>
