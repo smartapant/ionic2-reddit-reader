@@ -12,9 +12,9 @@
 
 </ion-header>
 
-<ion-spinner *ngIf="!loadCompleted" name="crescent" class="comments-load-spinner"></ion-spinner>
-
 <ion-content padding>
+  <ion-spinner *ngIf="!loadCompleted" name="crescent" class="comments-load-spinner"></ion-spinner>
+
   <ion-card *ngIf="post.selftext">
     <ion-card-content>
       <p class="selftext">{{post.selftext}}</p>
