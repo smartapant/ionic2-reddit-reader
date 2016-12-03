@@ -29,7 +29,7 @@ Ionic 2 Reddit Reader
 
 License
 -------------
-<a href=/LICENSE.txt" target="_blank">MIT</a> license.
+<a href=/LICENSE.txt target="_blank">MIT</a> license.
 
 ### From me
 I would like Ionic 2 Reddit Reader to evolve, so i am open to your help, suggestions and feedback.
