@@ -22,6 +22,8 @@ Ionic 2 Reddit Reader
 * Read comments
 
 ### Areas for Future Improvement / Involvement
+* Pull to refresh
+* No connection message
 * Subreddits navigation
 * User authoriazation
 * Commenting
