@@ -36,7 +36,7 @@ License
 ### From me
 I would like Ionic 2 Reddit Reader to evolve, so i am open to your help, suggestions and feedback.
 
-If you're interested in product's updates and in my future opensource products - follow me on [twitter](https://twitter.com/)
+If you're interested in app's updates and in my future opensource products - follow me on [twitter](https://twitter.com/)
 
 ### Hire me
 
