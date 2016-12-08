@@ -34,7 +34,9 @@ License
 <a href=/LICENSE.txt target="_blank">MIT</a> license.
 
 ### From me
-I would like Ionic 2 Reddit Reader to evolve, so i am open to your help, suggestions and feedback
+I would like Ionic 2 Reddit Reader to evolve, so i am open to your help, suggestions and feedback.
+
+If you're interested in product's updates and in my future opensource products - follow me on [twitter](https://twitter.com/)
 
 ### Hire me
 
