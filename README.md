@@ -27,7 +27,7 @@ Ionic 2 Reddit Reader
 * Subreddits navigation
 * User authoriazation
 * Commenting
-* Upwoting
+* Upvoting
 
 License
 -------------
