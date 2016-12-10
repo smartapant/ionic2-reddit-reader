@@ -20,7 +20,9 @@
     <ion-card-content (click)="readPost(post)" class="post-card-content">
       <ion-card-title class="post-title">{{post.title}}</ion-card-title>
       <img *ngIf="getPostImage(post)" [src]="getPostImage(post)" (error)="setImageError(post)">
-      <p class="post-author">{{'/r/' + post.subreddit}}, by {{post.author}}</p>
+      <a class="post-author" (click)="goToSubreddit(post.subreddit); $event.stopPropagation()">
+        {{'/r/' + post.subreddit}}, by {{post.author}}
+      </a>
     </ion-card-content>
     <ion-row>
       <ion-col center text-center>
