@@ -24,10 +24,10 @@ Ionic 2 Reddit Reader
 ### Areas for Future Improvement / Involvement
 * Pull to refresh
 * No connection message
-* Subreddits navigation
-* User authoriazation
+* Subreddit navigation
+* User authorization
 * Commenting
-* Upwoting
+* Upvoting
 
 License
 -------------
