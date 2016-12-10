@@ -67,7 +67,7 @@ export class PostsPage {
     if (!lastPost) {
       infiniteScroll.complete()
     } else {
-      this.redditApi.fetchNext(lastPost.name).subscribe((posts) => {
+      this.redditApi.fetchNext(lastPost.name, this.subreddit).subscribe((posts) => {
         this.posts = this.posts.concat(posts);
         infiniteScroll.complete();
       })
