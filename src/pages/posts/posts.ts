@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
 import { RedditApiService } from '../../providers/reddit-api-service';
 import { CommentsPage } from '../comments/comments'
@@ -11,16 +11,18 @@ import { CommentsPage } from '../comments/comments'
 })
 export class PostsPage {
   loadCompleted: boolean = false;
+  subreddit;
 
   posts: Array<any>;
   commentsPage = CommentsPage;
 
-  constructor(public navCtrl: NavController, public redditApi: RedditApiService) {
-    this.load();
+  constructor(public navCtrl: NavController, public redditApi: RedditApiService, public navParams: NavParams) {
+    this.subreddit = this.navParams.get('subreddit');
+    this.load(this.subreddit);
   }
 
-  load() {
-    this.redditApi.fetchHot().subscribe((posts) => {
+  load(url?) {
+    this.redditApi.fetch(url).subscribe((posts) => {
       this.posts = posts;
       this.loadCompleted = true;
       console.log(posts)
@@ -37,6 +39,10 @@ export class PostsPage {
 
   setImageError(post) {
     post.imageError = true;
+  }
+
+  testSub(name) {
+    this.navCtrl.push(PostsPage, {subreddit: name})
   }
 
   readPost(post) {

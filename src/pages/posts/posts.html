@@ -8,6 +8,8 @@
 
 <ion-content padding>
 
+  <button (click)="testSub('ionic')">Ionic</button>
+
   <ion-spinner *ngIf="!loadCompleted" name="crescent" class="posts-load-spinner"></ion-spinner>
 
   <ion-card *ngFor="let post of posts">
