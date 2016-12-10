@@ -1,6 +1,6 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
-import {MomentModule} from 'angular2-moment';
+import { MomentModule } from 'angular2-moment';
 import { RedditReaderApp } from './app.component';
 import { PostsPage } from '../pages/posts/posts';
 import { CommentsPage } from '../pages/comments/comments'

@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
-
 import { NavController } from 'ionic-angular';
 
 import { RedditApiService } from '../../providers/reddit-api-service';
-
 import { CommentsPage } from '../comments/comments'
 
 @Component({
