@@ -42,7 +42,7 @@ export class PostsPage {
   }
 
   readPost(post) {
-    let redditUrl = 'https://www.reddit.com/r/'
+    let redditUrl = 'https://www.reddit.com/r/';
     if (post.url.includes(redditUrl)) {
       this.goToComments(post)
     } else {
@@ -51,7 +51,7 @@ export class PostsPage {
   }
 
   goToComments(post) {
-    this.navCtrl.push(this.commentsPage, {post: post})
+    this.navCtrl.push(this.commentsPage, {post})
   }
 
   goToPost(post) {
