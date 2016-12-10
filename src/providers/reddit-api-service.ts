@@ -10,14 +10,20 @@ export class RedditApiService {
 
   constructor(public http: Http) {}
 
-  fetchHot() {
-    return this.http.get(BASE_URL + JSON_POSTFIX)
-      .map(this.redditCollectionToJson)
+  fetch(url?: string) {
+    return url ?
+      this.http.get(BASE_URL + '/r/' + url + JSON_POSTFIX)
+        .map(this.redditCollectionToJson) :
+      this.http.get(BASE_URL + JSON_POSTFIX)
+        .map(this.redditCollectionToJson)
   }
 
-  fetchNext(lastPostName: string) {
-    return this.http.get(BASE_URL + JSON_POSTFIX + '?count=' + 25 + '&after=' + lastPostName)
-      .map(this.redditCollectionToJson)
+  fetchNext(lastPostName: string, url?: string) {
+    return url ?
+      this.http.get(BASE_URL + '/r/' + url + JSON_POSTFIX + '?count=' + 25 + '&after=' + lastPostName)
+        .map(this.redditCollectionToJson) :
+      this.http.get(BASE_URL + JSON_POSTFIX + '?count=' + 25 + '&after=' + lastPostName)
+        .map(this.redditCollectionToJson)
   }
 
   fetchComments(post) {
