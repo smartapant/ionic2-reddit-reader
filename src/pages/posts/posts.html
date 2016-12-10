@@ -1,14 +1,18 @@
 <ion-header>
   <ion-navbar color="primary" text-center>
     <ion-title>
-      Ionic 2 Reddit Reader
+      Ionic 2 Reddit Reader: /r/{{ subreddit || 'all' }}
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
 
-  <button (click)="testSub('ionic')">Ionic</button>
+  <ion-item>
+    <ion-label color="primary" floating>Go to subreddit</ion-label>
+    <ion-input #subredditInput></ion-input>
+  </ion-item>
+  <button ion-button (click)="goToSubreddit(subredditInput.value)" block>Go</button>
 
   <ion-spinner *ngIf="!loadCompleted" name="crescent" class="posts-load-spinner"></ion-spinner>
 

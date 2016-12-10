@@ -41,10 +41,6 @@ export class PostsPage {
     post.imageError = true;
   }
 
-  testSub(name) {
-    this.navCtrl.push(PostsPage, {subreddit: name})
-  }
-
   readPost(post) {
     let redditUrl = 'https://www.reddit.com/r/'
     if (post.url.includes(redditUrl)) {
@@ -60,6 +56,10 @@ export class PostsPage {
 
   goToPost(post) {
     window.open(post.url, '_blank');
+  }
+
+  goToSubreddit(subreddit) {
+    this.navCtrl.push(PostsPage, {subreddit})
   }
 
   loadMore(infiniteScroll) {
