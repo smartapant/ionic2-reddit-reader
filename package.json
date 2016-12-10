@@ -1,6 +1,7 @@
 {
   "name": "ionic2-reddit-reader",
   "author": "smartapant",
+  "version": "1.0.0",
   "private": false,
   "scripts": {
     "ionic:build": "ionic-app-scripts build",
