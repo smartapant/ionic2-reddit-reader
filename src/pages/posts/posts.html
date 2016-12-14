@@ -25,6 +25,9 @@
       <ion-input #subredditInput></ion-input>
     </ion-item>
     <button class="menu-go-button" ion-button (click)="goToSubreddit(subredditInput.value)" block>Go</button>
+    <ion-item>
+      <ion-label color="primary" (click)="goToFavoritesPage()" >Favorites </ion-label> <i class = "icon ion-android-favorite-outline"></i>
+    </ion-item>
   </ion-content>
 
 </ion-menu>

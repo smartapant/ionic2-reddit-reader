@@ -23,7 +23,6 @@ export class FavoritesPage {
 
   getFavorites() {
     this.storage.get('favorites').then((favoritesList) => {
-      console.log('Favorites List', favoritesList);
       if (favoritesList){
       	this.favorites = favoritesList;
       }

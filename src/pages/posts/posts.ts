@@ -4,6 +4,7 @@ import { Storage } from '@ionic/storage';
 
 import { RedditApiService } from '../../providers/reddit-api-service';
 import { CommentsPage } from '../comments/comments'
+import { FavoritesPage } from '../favorites/favorites'
 
 @Component({
   selector: 'page-posts',
@@ -117,7 +118,6 @@ export class PostsPage {
 
   checkIfFavorited(): void {
     this.storage.get('favorites').then((favoritesList) => {
-      console.log("fave list", favoritesList);
       if (favoritesList){
         if(favoritesList.indexOf(this.subreddit) > -1){ // check if subreddit exist in favoritesList 
           this.subredditIsFavorited = true;
