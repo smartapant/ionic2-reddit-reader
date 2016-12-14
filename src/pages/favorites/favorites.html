@@ -5,14 +5,19 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>favorites</ion-title>
+  <ion-navbar class="posts-page-navbar" color="primary" text-center>
+    <ion-title>
+      Favorites
+    </ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
 <ion-content padding>
-
+	<ion-list no-lines>
+	  <button ion-item *ngFor="let item of favorites" (click)="goToSubreddit(item)">
+	    {{ item }} 
+	  </button>  
+	</ion-list>
 </ion-content>
+

@@ -1,22 +1,37 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
-/*
-  Generated class for the Favorites page.
+import { PostsPage } from '../posts/posts';
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-favorites',
-  templateUrl: 'favorites.html'
+  templateUrl: 'favorites.html',
+  providers: [Storage]
 })
 export class FavoritesPage {
+  private storage: Storage;
+  favorites: Array<any> = [];
 
-  constructor(public navCtrl: NavController) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, storage: Storage) {
+  	this.storage = storage;
+  }
 
-  ionViewDidLoad() {
-    console.log('Hello FavoritesPage Page');
+  ionViewWillEnter() {
+    this.getFavorites();    
+  }
+
+  getFavorites() {
+    this.storage.get('favorites').then((favoritesList) => {
+      console.log('Favorites List', favoritesList);
+      if (favoritesList){
+      	this.favorites = favoritesList;
+      }
+    });
+  };
+
+  goToSubreddit(subreddit) {
+    this.navCtrl.push(PostsPage, {subreddit});
   }
 
 }

@@ -5,6 +5,8 @@
     </button>
     <ion-title>
       {{ subreddit ? '/r/' + subreddit : 'Ionic 2 Reddit Reader' }}
+      <ion-icon name="ios-heart-outline" *ngIf="subreddit && !subredditIsFavorited" (click)="addToFavorites()" ></ion-icon>
+      <ion-icon name="ios-heart" *ngIf="subredditIsFavorited&&subreddit" (click)="removeFromFavorites()" ></ion-icon>
     </ion-title>
   </ion-navbar>
 </ion-header>
