@@ -14,6 +14,11 @@
   <ion-header>
     <ion-toolbar color="primary">
       <ion-title>Choose subreddit</ion-title>
+      <ion-buttons right>
+        <button ion-button icon-only (click)="goToSettings()">
+          <ion-icon name="settings" color="light"></ion-icon>
+        </button>
+      </ion-buttons>
     </ion-toolbar>
   </ion-header>
 
@@ -42,7 +47,7 @@
     <ion-row>
       <ion-col center text-center>
         <ion-note>
-          <ion-icon name="ios-arrow-up-outline" class="score-icon"></ion-icon>
+          <ion-icon name="ionios-arrow-up-outline" class="score-icon"></ion-icon>
           <span>{{post.score}}</span>
         </ion-note>
       </ion-col>
