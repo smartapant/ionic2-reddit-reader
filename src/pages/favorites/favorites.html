@@ -17,20 +17,18 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Favorites</ion-title>
+    <ion-title>Subreddit</ion-title>
   </ion-navbar>
 </ion-header>
-
 
 <ion-content padding>
   <ion-item>
       <ion-label color="primary" floating>Go to subreddit</ion-label>
       <ion-input #subredditInput></ion-input>
-    </ion-item>
-    <button class="menu-go-button" ion-button (click)="goToSubreddit(subredditInput.value)" block>Go</button>
-    <ion-item>
   </ion-item>
+    <button class="menu-go-button" ion-button (click)="goToSubreddit(subredditInput.value)" block>Go</button>
 
+  <h1>Favorites</h1>
 	<ion-list no-lines>
 	  <button ion-item *ngFor="let item of favorites" (click)="goToSubreddit(item)">
 	    {{ item }} 

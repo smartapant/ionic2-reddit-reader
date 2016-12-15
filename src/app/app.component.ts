@@ -27,7 +27,7 @@ export class RedditReaderApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Posts', component: PostsPage },
-      { title: 'Favorites', component: FavoritesPage }
+      { title: 'Subreddit', component: FavoritesPage }
     ];
 
   }
