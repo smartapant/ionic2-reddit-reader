@@ -5,6 +5,8 @@
     </button>
     <ion-title>
       {{ subreddit ? '/r/' + subreddit : 'Ionic 2 Reddit Reader' }}
+      <ion-icon name="ios-heart-outline" *ngIf="subreddit && !subredditIsFavorited" (click)="addToFavorites()" ></ion-icon>
+      <ion-icon name="ios-heart" *ngIf="subredditIsFavorited&&subreddit" (click)="removeFromFavorites()" ></ion-icon>
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -23,6 +25,9 @@
       <ion-input #subredditInput></ion-input>
     </ion-item>
     <button class="menu-go-button" ion-button (click)="goToSubreddit(subredditInput.value)" block>Go</button>
+    <ion-item>
+      <ion-label color="primary" (click)="goToFavoritesPage()" >Favorites </ion-label> <i class = "icon ion-android-favorite-outline"></i>
+    </ion-item>
   </ion-content>
 
 </ion-menu>
