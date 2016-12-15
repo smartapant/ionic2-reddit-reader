@@ -4,30 +4,11 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>
-      {{ 'Ionic 2 Reddit Reader' }}
+      Settings
     </ion-title>
   </ion-navbar>
 </ion-header>
 
+<ion-content #settingsPage padding>
 
-<ion-menu class="side-menu" type="overlay">
-  <ion-header>
-    <ion-toolbar color="primary">
-      <ion-title>Choose subreddit</ion-title>
-      <ion-buttons right>
-        <button ion-button icon-only (click)="goToSettings()">
-          <ion-icon name="settings" color="light"></ion-icon>
-        </button>
-      </ion-buttons>
-    </ion-toolbar>
-  </ion-header>
-
-  <ion-content>
-    <ion-item>
-      <ion-label color="primary" floating>Go to subreddit</ion-label>
-      <ion-input #subredditInput></ion-input>
-    </ion-item>
-    <button class="menu-go-button" ion-button (click)="goToSubreddit(subredditInput.value)" block>Go</button>
-  </ion-content>
-
-</ion-menu>
+</ion-content>

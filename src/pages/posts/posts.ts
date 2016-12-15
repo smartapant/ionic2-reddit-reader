@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 import { RedditApiService } from '../../providers/reddit-api-service';
-import { CommentsPage } from '../comments/comments'
+import { CommentsPage } from '../comments/comments';
+import { SettingsPage } from '../settings/settings';
 
 @Component({
   selector: 'page-posts',
@@ -15,6 +16,7 @@ export class PostsPage {
 
   posts: Array<any>;
   commentsPage = CommentsPage;
+  settingsPage = SettingsPage;
 
   constructor(public navCtrl: NavController, public redditApi: RedditApiService, public navParams: NavParams) {
     this.subreddit = this.navParams.get('subreddit');
@@ -60,6 +62,10 @@ export class PostsPage {
 
   goToSubreddit(subreddit) {
     this.navCtrl.push(PostsPage, {subreddit})
+  }
+
+  goToSettings() {
+    this.navCtrl.push(this.settingsPage);
   }
 
   loadMore(infiniteScroll) {

@@ -3,15 +3,17 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MomentModule } from 'angular2-moment';
 import { RedditReaderApp } from './app.component';
 import { PostsPage } from '../pages/posts/posts';
-import { CommentsPage } from '../pages/comments/comments'
-import { CommentsList } from '../pages/comments/commentsList/commentsList'
+import { CommentsPage } from '../pages/comments/comments';
+import { CommentsList } from '../pages/comments/commentsList/commentsList';
+import { SettingsPage } from '../pages/settings/settings';
 
 @NgModule({
   declarations: [
     RedditReaderApp,
     PostsPage,
     CommentsPage,
-    CommentsList
+    CommentsList,
+    SettingsPage
   ],
   imports: [
     IonicModule.forRoot(RedditReaderApp),
@@ -21,7 +23,8 @@ import { CommentsList } from '../pages/comments/commentsList/commentsList'
   entryComponents: [
     RedditReaderApp,
     PostsPage,
-    CommentsPage
+    CommentsPage,
+    SettingsPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
