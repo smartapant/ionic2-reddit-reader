@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
+import { AlertController } from 'ionic-angular';
 
 import { RedditApiService } from '../../providers/reddit-api-service';
 import { CommentsPage } from '../comments/comments'
@@ -19,21 +20,45 @@ export class PostsPage {
   posts: Array<any>;
   commentsPage = CommentsPage;
 
-  constructor(public navCtrl: NavController, public redditApi: RedditApiService, public navParams: NavParams, storage: Storage) {
+  constructor(public navCtrl: NavController, public redditApi: RedditApiService, public navParams: NavParams, storage: Storage, public alertCtrl: AlertController) {
     this.storage = storage;
     this.subreddit = this.navParams.get('subreddit');
     this.load(this.subreddit);
   }
 
-  load(url?) {
+  load(url?,) {
     if (this.subreddit){
       this.checkIfFavorited();
     }
-    this.redditApi.fetch(url).subscribe((posts) => {
-      this.posts = posts;
-      this.loadCompleted = true;
-      console.log(posts)
-    })
+    this.redditApi.fetch(url).subscribe(
+      posts => { this.posts = posts;  },
+      err => {
+        this.posts = []; 
+        this.loadCompleted = true;
+        this.showErrorAlert();
+      },
+      () => { this.loadCompleted = true; }
+     );
+      console.log(this.posts)
+  }
+
+  refreshPosts(refresher){
+    var url : string = '';
+    if (this.subreddit){
+      url = this.subreddit;
+    }
+    this.redditApi.fetch(url).subscribe(
+      posts => { this.posts = posts;  },
+      err => {
+        this.posts = []; 
+        this.loadCompleted = true;
+        this.showErrorAlert();
+      },
+      () => { 
+        this.loadCompleted = true;
+        refresher.complete();
+      }
+    );
   }
 
   getPostImage(post) {
@@ -126,5 +151,14 @@ export class PostsPage {
     }).catch((ex) => {
        console.log("Exception",ex);
     });
+  }
+
+  showErrorAlert() {
+    let alert = this.alertCtrl.create({
+      title: 'Fetching Posts Error',
+      subTitle: 'No posts retrieved!',
+      buttons: ['OK']
+    });
+    alert.present();
   }
 }

@@ -12,34 +12,18 @@
 </ion-header>
 
 
-<ion-menu class="side-menu" type="overlay" [content]="postsList">
-  <ion-header>
-    <ion-toolbar color="primary">
-      <ion-title>Choose subreddit</ion-title>
-        <ion-buttons right>
-          <button ion-button icon-only>
-            <ion-icon name="settings" color="light"></ion-icon>
-          </button>
-        </ion-buttons>
-    </ion-toolbar>
-  </ion-header>
-
-  <ion-content>
-    <ion-item>
-      <ion-label color="primary" floating>Go to subreddit</ion-label>
-      <ion-input #subredditInput></ion-input>
-    </ion-item>
-    <button class="menu-go-button" ion-button (click)="goToSubreddit(subredditInput.value)" block>Go</button>
-    <ion-item>
-      <ion-label color="primary" (click)="goToFavoritesPage()" >Favorites </ion-label> <i class = "icon ion-android-favorite-outline"></i>
-    </ion-item>
-  </ion-content>
-
-</ion-menu>
-
 <ion-content #postsList padding>
 
   <ion-spinner *ngIf="!loadCompleted" name="crescent" class="posts-load-spinner"></ion-spinner>
+
+   <ion-refresher (ionRefresh)="refreshPosts($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
 
   <ion-card *ngFor="let post of posts">
     <ion-card-content (click)="readPost(post)" class="post-card-content">
