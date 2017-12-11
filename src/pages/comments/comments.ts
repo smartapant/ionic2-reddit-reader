@@ -1,26 +1,20 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavParams } from 'ionic-angular';
 
 import { RedditApiService } from '../../providers/reddit-api-service';
 
-/*
-  Generated class for the Comments page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-comments',
-  templateUrl: 'comments.html',
-  providers: [RedditApiService],
+  templateUrl: 'comments.html'
 })
 export class CommentsPage {
   post;
   comments;
   loadCompleted: boolean = false;
 
-  constructor(public navCtrl: NavController, public redditApi: RedditApiService, public params: NavParams) {
-    this.post = this.params.get('post');
+  constructor(private redditApi: RedditApiService,
+              params: NavParams) {
+    this.post = params.get('post');
     this.load();
   }
 
@@ -29,7 +23,6 @@ export class CommentsPage {
       // comments.sort((a,b) => b.score - a.score);
       this.comments = comments;
       this.loadCompleted = true;
-      console.log(this.comments)
     })
   }
 }

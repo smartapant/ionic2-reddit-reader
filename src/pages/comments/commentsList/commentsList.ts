@@ -2,8 +2,7 @@ import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'comments-list',
-  templateUrl: 'commentsList.html',
-  providers: [],
+  templateUrl: 'commentsList.html'
 })
 export class CommentsList {
   @Input() comments;

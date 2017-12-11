@@ -6,8 +6,7 @@ import { CommentsPage } from '../comments/comments'
 
 @Component({
   selector: 'page-posts',
-  templateUrl: 'posts.html',
-  providers: [RedditApiService]
+  templateUrl: 'posts.html'
 })
 export class PostsPage {
   loadCompleted: boolean = false;
@@ -16,8 +15,10 @@ export class PostsPage {
   posts: Array<any>;
   commentsPage = CommentsPage;
 
-  constructor(public navCtrl: NavController, public redditApi: RedditApiService, public navParams: NavParams) {
-    this.subreddit = this.navParams.get('subreddit');
+  constructor(private navCtrl: NavController,
+              private redditApi: RedditApiService,
+              navParams: NavParams) {
+    this.subreddit = navParams.get('subreddit');
     this.load(this.subreddit);
   }
 
@@ -25,7 +26,6 @@ export class PostsPage {
     this.redditApi.fetch(url).subscribe((posts) => {
       this.posts = posts;
       this.loadCompleted = true;
-      console.log(posts)
     })
   }
 
